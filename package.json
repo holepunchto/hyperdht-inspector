@@ -1,0 +1,49 @@
+{
+  "name": "hyperdht-inspector",
+  "version": "0.1.0",
+  "description": "Inspector protocol over HyperDHT for Bare and Node.js",
+  "homepage": "https://github.com/holepunchto/hyperdht-inspector#readme",
+  "bugs": {
+    "url": "https://github.com/holepunchto/hyperdht-inspector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/holepunchto/hyperdht-inspector.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Holepunch Inc",
+  "type": "commonjs",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/"
+  ],
+  "scripts": {
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "npm run lint && brittle-node test/test.js",
+    "test:bare": "brittle-bare test/test.js"
+  },
+  "dependencies": {
+    "bare-inspector": "^6.1.0",
+    "compact-encoding": "^3.3.2",
+    "protomux": "^3.11.0",
+    "protomux-rpc": "^1.10.1",
+    "ready-resource": "^1.2.0",
+    "which-runtime": "^1.4.0"
+  },
+  "devDependencies": {
+    "bare-subprocess": "^6.1.0",
+    "brittle": "^4.1.0",
+    "hyperdht": "^6.33.2",
+    "prettier": "^3.6.2",
+    "prettier-config-holepunch": "^2.0.0",
+    "protomux-rpc-router": "^1.2.1"
+  },
+  "imports": {
+    "inspector/promises": {
+      "bare": "bare-inspector",
+      "default": "inspector/promises"
+    }
+  }
+}
