@@ -73,11 +73,12 @@ By default, the server allows these methods:
 By default, the server sends only the `HeapProfiler.addHeapSnapshotChunk` event.
 The CPU profile is returned by `Profiler.stop`.
 
-To allow more methods or events, set `allowMethods` and `allowEvents`:
+Requests intentionally omit params. To allow more methods or events, set
+`allowMethods` and `allowEvents`:
 
 ```js
 const inspector = new Server(router, {
-  allowMethods: ['Runtime.enable', 'Runtime.evaluate'],
+  allowMethods: ['Runtime.enable', 'Runtime.getIsolateId'],
   allowEvents: ['Runtime.consoleAPICalled']
 })
 ```
@@ -86,6 +87,16 @@ The application owns the DHT nodes, router, server, and access control. Allow
 only trusted client keys. Close all resources during shutdown.
 
 ## Test
+
+RPC requests use the Hyperschema encoding defined in `build.js`. Regenerate
+`spec/hyperschema` after changing the schema:
+
+```sh
+npm run build
+```
+
+Responses and notifications use JSON. The binary request encoding requires both
+client and server to be updated together from the previous JSON request format.
 
 ```sh
 npm test

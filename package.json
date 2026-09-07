@@ -16,9 +16,11 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "lib/"
+    "lib/",
+    "spec/hyperschema/"
   ],
   "scripts": {
+    "build": "node build.js",
     "lint": "prettier --check .",
     "format": "prettier --write .",
     "test": "npm run lint && brittle-node test/test.js",
@@ -27,6 +29,7 @@
   "dependencies": {
     "bare-inspector": "^6.1.0",
     "compact-encoding": "^3.3.2",
+    "hyperschema": "^1.23.0",
     "protomux": "^3.11.0",
     "protomux-rpc": "^1.10.1",
     "ready-resource": "^1.2.0",

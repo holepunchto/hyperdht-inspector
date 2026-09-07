@@ -6,22 +6,16 @@ const { Client, Server } = require('..')
 
 test('simple integration', async (t) => {
   const { client, inspector } = await setup(t, {
-    allowMethods: ['Runtime.evaluate']
+    allowMethods: ['Runtime.getIsolateId']
   })
 
   t.alike(inspector.stats, { attempted: 0, failed: 0, success: 0 }, 'starts empty')
 
-  const evaluation = await client.post('Runtime.evaluate', {
-    expression: '1 + 1',
-    returnByValue: true
-  })
+  const { id } = await client.post('Runtime.getIsolateId')
 
-  t.is(evaluation.result.value, 2, 'posts a CDP request')
+  t.is(typeof id, 'string', 'posts a CDP request')
 
-  await t.exception(
-    () => client.post('Runtime.getIsolateId'),
-    'rejects methods outside the allowlist'
-  )
+  await t.exception(() => client.post('Runtime.evaluate'), 'rejects methods outside the allowlist')
   t.alike(inspector.stats, { attempted: 2, failed: 1, success: 1 }, 'classifies posts')
 })
 

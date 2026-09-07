@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": [
+    {
+      "name": "post-request",
+      "namespace": "inspector",
+      "compact": true,
+      "flagsPosition": -1,
+      "fields": [
+        {
+          "name": "method",
+          "required": true,
+          "type": "string",
+          "version": 1
+        }
+      ]
+    }
+  ]
+}
