@@ -2,6 +2,11 @@
 
 Use the inspector protocol over HyperDHT with Bare or Node.js
 
+> [!WARNING]
+> This package is a work in progress and is still at a very early stage of
+> development. Its API and behavior can change without notice. Do not use it in
+> production until a stable release is available.
+
 For the client CLI, see
 [`hyperdht-inspector-cli`](https://github.com/holepunchto/hyperdht-inspector-cli)
 
