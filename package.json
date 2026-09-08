@@ -1,6 +1,6 @@
 {
   "name": "hyperdht-inspector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Inspector protocol over HyperDHT for Bare and Node.js",
   "homepage": "https://github.com/holepunchto/hyperdht-inspector#readme",
   "bugs": {
